@@ -15,7 +15,7 @@
 Measured using cProfile over multiple runs:
 
 - Number of runs: 10
-- Average runtime per run: ~0.5 seconds (this is just an example)
+- Average runtime per run: ~0.5 seconds (this is just an example, i'll adjust thsi later)
 
 ## Throughput
 - Samples per second ≈ 32 / 0.5 = 64 samples/sec
