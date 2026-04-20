@@ -62,7 +62,7 @@ Total work = 2N^3 FLOPs
 Memory time = (8N^3) / (320e9)  
 Compute time = (2N^3) / (10e12)  
 
-Memory time is bigger → memory is the bottleneck
+Memory time is bigger, memory is the bottleneck
 
 Naive = memory-bound
 
