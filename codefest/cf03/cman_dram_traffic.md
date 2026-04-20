@@ -4,119 +4,89 @@
 
 For one output element:
 
-\[
-C[i][j] = \sum_{k=0}^{N-1} A[i][k] \cdot B[k][j]
-\]
+C[i][j] = sum over k=0 to N-1 of A[i][k] * B[k][j]
 
 Each computation:
-- Reads **N elements from A**
-- Reads **N elements from B**
+- Reads N elements from A
+- Reads N elements from B
 
-Across the full \(N \times N\) output:
-- A accesses = \(N^3\)
-- B accesses = \(N^3\)
+Across the full (N × N) output:
+- A accesses = N^3
+- B accesses = N^3
 
 Total element accesses:
-\[
 2N^3
-\]
 
 Assuming FP32 (4 bytes per element):
 
-\[
-\text{Total DRAM traffic} = 2N^3 \cdot 4 = 8N^3 \text{ bytes}
-\]
+Total DRAM traffic = 2N^3 * 4 = 8N^3 bytes
 
 ---
 
 ## 2. Tiled Matrix Multiply (T = 8)
 
-The matrix is divided into \(8 \times 8\) tiles.
+The matrix is divided into 8 × 8 tiles.
 
-Each element of A and B is loaded **once** from DRAM and reused from shared memory.
+Each element of A and B is loaded once from DRAM and reused.
 
-- A loads = \(N^2\)
-- B loads = \(N^2\)
+- A loads = N^2
+- B loads = N^2
 
 Total element loads:
-\[
 2N^2
-\]
 
 Total DRAM traffic:
-\[
-2N^2 \cdot 4 = 8N^2 \text{ bytes}
-\]
+2N^2 * 4 = 8N^2 bytes
 
 ---
 
 ## 3. Traffic Ratio
 
-\[
-\frac{\text{Naive traffic}}{\text{Tiled traffic}} = \frac{8N^3}{8N^2} = N
-\]
+Naive / Tiled = (8N^3) / (8N^2) = N
 
-**Explanation (one sentence):**  
-The tiled version reduces DRAM traffic by reusing data in shared memory, so each element is loaded once instead of being reloaded \(N\) times.
+Explanation:
+The tiled version reuses data in shared memory, so each element is loaded once instead of N times.
 
 ---
 
 ## 4. Execution Time and Bottleneck
 
 Given:
-- DRAM bandwidth = 320 GB/s = \(320 \times 10^9\) bytes/s  
-- Compute = 10 TFLOPS = \(10 \times 10^{12}\) FLOP/s  
+- DRAM bandwidth = 320 GB/s
+- Compute = 10 TFLOPS
 
 Total FLOPs:
-\[
 2N^3
-\]
 
----
-
-### Naive Case
+### Naive
 
 Memory time:
-\[
-t_{\text{mem}} = \frac{8N^3}{320 \times 10^9}
-\]
+t_mem = (8N^3) / (320 × 10^9)
 
 Compute time:
-\[
-t_{\text{compute}} = \frac{2N^3}{10 \times 10^{12}}
-\]
+t_compute = (2N^3) / (10 × 10^12)
 
-Since memory time is much larger than compute time:
-
-\[
-\textbf{Naive is memory-bound}
-\]
+Result:
+Naive is memory-bound
 
 ---
 
-### Tiled Case
+### Tiled
 
 Memory time:
-\[
-t_{\text{mem}} = \frac{8N^2}{320 \times 10^9}
-\]
+t_mem = (8N^2) / (320 × 10^9)
 
 Compute time:
-\[
-t_{\text{compute}} = \frac{2N^3}{10 \times 10^{12}}
-\]
+t_compute = (2N^3) / (10 × 10^12)
 
-Since DRAM traffic is greatly reduced, compute dominates:
-
-\[
-\textbf{Tiled is compute-bound}
-\]
+Result:
+Tiled is compute-bound
 
 ---
 
-## Final Summary
+## Summary
 
 | Method | DRAM Traffic | Bottleneck |
-|-------|-------------|-----------|
-| Naive | \(8N^3\) bytes | Memory-bound |
-| Tiled | \(8N^2\) bytes | Compute-bound |
+|--------|-------------|------------|
+| Naive  | 8N^3 bytes  | Memory     |
+| Tiled  | 8N^2 bytes  | Compute    |
