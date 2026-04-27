@@ -19,6 +19,27 @@ Offending line:
 
 ```systemverilog
 if (!rst)
-Why wrong:
 
-The specification requires an active-high reset. This line makes reset active-low, so the accumulator resets when rst = 0 instead of rst = 1.
+This is wrong becasue the specification needs an active high reset. but this line makes the reset active low, so the accumulator resets when rst = 0 instead of rst = 1.
+
+Corrected version:
+
+if (rst)
+    out <= 32'sd0;
+else
+    out <= out + product;
+
+Issue 2: Missing explicit sign extension
+
+Offending line:
+
+out <= out + a * b;
+
+It's wrong because the multiplication output is 16 bit signed, but the accumulator is 32 bit.
+
+Corrected version:
+
+logic signed [15:0] product;
+assign product = a * b;
+out <= out + {{16{product[15]}}, product};
+
