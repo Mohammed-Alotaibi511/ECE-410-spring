@@ -17,7 +17,6 @@ Constraint: Synthesizable SystemVerilog only, use always_ff.
 
 Offending line:
 
-```systemverilog
 if (!rst)
 
 This is wrong becasue the specification needs an active high reset. but this line makes the reset active low, so the accumulator resets when rst = 0 instead of rst = 1.
@@ -29,7 +28,7 @@ if (rst)
 else
     out <= out + product;
 
-Issue 2: Missing explicit sign extension
+## Issue 2: Missing explicit sign extension
 
 Offending line:
 
