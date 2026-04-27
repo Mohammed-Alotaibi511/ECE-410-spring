@@ -60,4 +60,4 @@ W_deq_bad = [[0.85, -1.20, 0.34, 1.27], [-0.07, 0.91, -1.27, 0.12], [1.27, 0.03,
 
 MAE_bad ≈ 0.17125
 
-When S is too small, values exceed the INT8 range and are clamped to [-127,127], causing saturation error.
+When S is too small, values exceed the INT8 range and are clamped to [-127,127], and this causes saturation error.
