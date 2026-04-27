@@ -19,4 +19,6 @@ Offending line:
 
 ```systemverilog
 if (!rst)
-It was wrong because the specification requires a high reset. This line makes reset low, so the accumulator resets when rst = 0 instead of rst = 1.
+Why wrong:
+
+The specification requires an active-high reset. This line makes reset active-low, so the accumulator resets when rst = 0 instead of rst = 1.
