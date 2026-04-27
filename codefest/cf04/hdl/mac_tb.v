@@ -24,11 +24,13 @@ module mac_tb;
         a = 0;
         b = 0;
 
-        @(posedge clk);
+        repeat (2) @(posedge clk);
+        #1;
         rst = 0;
 
         a = 8'sd3;
         b = 8'sd4;
+
         repeat (3) @(posedge clk);
         #1;
 
@@ -39,6 +41,7 @@ module mac_tb;
 
         a = -8'sd5;
         b = 8'sd2;
+
         repeat (2) @(posedge clk);
         #1;
 
