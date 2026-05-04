@@ -1,1 +1,2 @@
-tb/tb_interface.sv:32: $finish called at 70 (1s)
+PASS
+tb/tb_interface.sv:37: $finish called at 80 (1s)
