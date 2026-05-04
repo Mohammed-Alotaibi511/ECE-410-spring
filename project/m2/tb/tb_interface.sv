@@ -28,7 +28,12 @@ module tb_interface;
 
         #10 in_a = 2; in_b = 3; valid_in = 1;
         #10 valid_in = 0;
-
+        #10;
+        if (out == (2*3)) begin
+            $display("PASS");
+        end else begin
+            $display("FAIL");
+        end
         #40 $finish;
     end
 

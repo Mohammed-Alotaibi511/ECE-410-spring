@@ -35,7 +35,12 @@ module tb_compute_core;
 
         #10 a = -5; b = 2; valid_in = 1;
         #10 valid_in = 0;
-
+        #10;
+        if (out == ((3*4) + (-5*2))) begin
+            $display("PASS");
+        end else begin
+             $display("FAIL");
+        end
         #50 $finish;
     end
 
