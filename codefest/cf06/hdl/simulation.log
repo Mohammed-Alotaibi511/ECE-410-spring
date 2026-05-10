@@ -1,0 +1,6 @@
+PASS
+out0 = -40
+out1 = 0
+out2 = -20
+out3 = -20
+crossbar_tb.sv:54: $finish called at 30 (1s)
