@@ -1,42 +1,42 @@
-\# M3 README
+# M3 README
 
 
 
-\## Folder Overview
+## Folder Overview
 
 
 
-\- `rtl/top.sv`  
+ `rtl/top.sv`  
 
 Integrated top-level module connecting the interface and compute core.
 
 
 
-\- `rtl/compute\_core.sv`  
+`rtl/compute\_core.sv`  
 
 Compute engine used for arithmetic processing.
 
 
 
-\- `rtl/interface.sv`  
+ `rtl/interface.sv`  
 
 Host-side interface module.
 
 
 
-\- `tb/tb\_top.sv`  
+ `tb/tb\_top.sv`  
 
 End-to-end co-simulation testbench.
 
 
 
-\- `sim/cosim\_run.log`  
+ `sim/cosim\_run.log`  
 
 Simulation transcript showing PASS output.
 
 
 
-\- `sim/cosim\_waveform.png`  
+ `sim/cosim\_waveform.png`  
 
 Waveform image captured from GTKWave.
 
@@ -48,31 +48,31 @@ OpenLane 2 synthesis configuration file.
 
 
 
-\- `synth/metrics.csv`  
+ `synth/metrics.csv`  
 
 OpenLane synthesis metrics output.
 
 
 
-\- `synth/timing\_report.txt`  
+ `synth/timing\_report.txt`  
 
 Timing analysis report.
 
 
 
-\- `synth/area\_report.txt`  
+ `synth/area\_report.txt`  
 
 Area and cell utilization report.
 
 
 
-\- `synth/power\_report.txt`  
+ `synth/power\_report.txt`  
 
 Power estimation report.
 
 
 
-\- `synth/critical\_path.md`  
+ `synth/critical\_path.md`  
 
 Critical path explanation and timing discussion.
 
@@ -84,15 +84,15 @@ Narrative description of synthesis process, debugging, and project status.
 
 
 
-\## Simulation
+## Simulation
 
 
 
 Simulator used:
 
-\- Icarus Verilog
+ Icarus Verilog
 
-\- GTKWave
+ GTKWave
 
 
 
@@ -132,13 +132,13 @@ gtkwave dump.vcd
 
 
 
-\## OpenLane Synthesis
+## OpenLane Synthesis
 
 
 
 OpenLane version:
 
-\- ghcr.io/efabless/openlane2:2.4.0.dev1
+ ghcr.io/efabless/openlane2:2.4.0.dev1
 
 
 
