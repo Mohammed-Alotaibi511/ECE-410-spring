@@ -8,7 +8,7 @@
 
  `rtl/top.sv`  
 
-Integrated top-level module connecting the interface and compute core.
+Integrated top level module connecting the interface and compute core.
 
 
 
@@ -20,13 +20,13 @@ Compute engine used for arithmetic processing.
 
  `rtl/interface.sv`  
 
-Host-side interface module.
+Host side interface module.
 
 
 
  `tb/tb\_top.sv`  
 
-End-to-end co-simulation testbench.
+End to end co-simulation testbench.
 
 
 
@@ -42,10 +42,9 @@ Waveform image captured from GTKWave.
 
 
 
-\- `synth/config.json`  
+ `synth/config.json`  
 
 OpenLane 2 synthesis configuration file.
-
 
 
  `synth/metrics.csv`  
@@ -78,7 +77,7 @@ Critical path explanation and timing discussion.
 
 
 
-\- `synthesis\_notes.md`  
+ `synthesis\_notes.md`  
 
 Narrative description of synthesis process, debugging, and project status.
 
