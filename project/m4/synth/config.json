@@ -1,0 +1,10 @@
+{
+    "DESIGN_NAME": "top",
+    "VERILOG_FILES": [
+        "../rtl/top.sv",
+        "../rtl/compute_core.sv",
+        "../rtl/interface.sv"
+    ],
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 10
+}
